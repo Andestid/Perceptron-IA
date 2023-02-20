@@ -1,4 +1,4 @@
 # Perceptron-
 Perceptron Web
 
-https://perceptron-production-2e93.up.railway.app
+https://perceptron-ia-production.up.railway.app
