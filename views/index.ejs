@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Perceptron</title>
+  <link rel="stylesheet" href="/css/estilos.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="CSS/estilos.css" media="screen" />
+</head>
+<body>
+
+<div class="jumbotron text-center">
+  <h1>Perceptron</h1>
+</div> 
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>Selecciona tus entradas binarias</h3>
+      <div class="form-group">
+        <br>     
+      w1 [  <input id="a" class="form-input " type="number" > ,  <input id="a2" class="form-input " type="number" > ]
+        <br><br>
+       w2 [  <input id="b" class="form-input " type="number" > ,  <input id="b2" class="form-input " type="number" > ]
+        <br><br>
+       w3 [  <input id="c" class="form-input " type="number" > ,  <input id="c2" class="form-input " type="number" > ]
+        <br><br> 
+        w4 [  <input id="d" class="form-input " type="number" > ,  <input id="d2" class="form-input " type="number" > ]
+        <br><br> 
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <img id="Tr" src="img/neurona_train.gif" width="300" height="300">
+      <br><br>  
+      <input type="button" class="btn btn-primary" value="ENTRENA A LA NEURONA" OnClick="exercise()"> 
+    </div>
+    <div class="col-sm-4">     
+            <h3>Selecciona tus salidas esperadas</h3>
+            <div class="form-group">
+              <br>     
+             w1  <input id="s1" class="form-input " type="number" >
+              <br><br>
+              w2  <input id="s2" class="form-input " type="number" > 
+              <br><br>
+              w3  <input id="s3" class="form-input " type="number" > 
+              <br><br>
+              w4  <input id="s4" class="form-input " type="number" > 
+              
+            </div>         
+    </div>
+  </div>
+</div>
+<hr class="new5">
+<div class="container">
+    <h1><center>Desafia a la neurona</center></h1>
+    <h3><center>(recuerda entrenarla bien antes)</center></h3>
+    <div class="row">
+      <div class="col-sm-4">
+        <h3>Selecciona una entrada binaria </h3>
+        <div class="form-group">
+          <br>     
+          w1 [  <input id="test1" class="form-input" type="number" > ,  <input id="test2" class="form-input type=" type="number" > ]
+          <br><br>
+         </div>
+      </div>
+      <div class="col-sm-4">
+        <img id="Tr" src="img/neurona.gif" width="300" height="300">
+        <br><br>  
+        <input type="button" class="btn btn-primary" value="Piensa" OnClick="adivinar()"> 
+      </div>
+      <div class="col-sm-4">    
+        <h3>¡Aqui la neurona te dara su respuesta! </h3>
+        <div class="form-group">
+          <br>     
+        respuesta:   <input id="st1" class="form-input " type="number" > 
+          <br><br>
+         </div>         
+      </div>
+    </div>
+  </div>
+<script src="/js/neurona.js"> </script>
+</body>
+</html>
