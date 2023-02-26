@@ -9,16 +9,90 @@ function exercise(){
   ]
   //Lo que quiero que aprenda la neurona
   let output = [
-  document.getElementById("s1").value,  //con la entrada 0,0 quiero que salga 0
-  document.getElementById("s2").value, //con la entrada 0,1 quiero que salga 0
-  document.getElementById("s3").value, //con la entrada 1,0 quiero que salga 0
-  document.getElementById("s4").value //con la entrada 1,1 quiero que salga 1
+    document.getElementById("s1").value,  //con la entrada 0,0 quiero que salga 0
+    document.getElementById("s2").value, //con la entrada 0,1 quiero que salga 0
+    document.getElementById("s3").value, //con la entrada 1,0 quiero que salga 0
+    document.getElementById("s4").value //con la entrada 1,1 quiero que salga 1
   ]
-      neurona.train(3500,input,output)
+      neurona.train(3000,input,output)
+      var ctx = document.getElementById('myChart').getContext('2d');  
+      var myChart = new Chart(ctx, {
+          type: 'line',
+          data: {
+              labels: ['W1', 'W2', 'W3'],
+              datasets: [{
+                label: 'Pesos',
+                data: getPesos(),
+                  backgroundColor: [
+                      'rgba(255, 99, 132, 0.2)',
+                      'rgba(54, 162, 235, 0.2)',
+                      'rgba(255, 206, 86, 0.2)',
+                      'rgba(75, 192, 192, 0.2)',
+                      'rgba(153, 102, 255, 0.2)',
+                      'rgba(255, 159, 64, 0.2)'
+                  ],
+                  borderColor: [
+                      'rgba(255, 99, 132, 1)',
+                      'rgba(54, 162, 235, 1)',
+                      'rgba(255, 206, 86, 1)',
+                      'rgba(75, 192, 192, 1)',
+                      'rgba(153, 102, 255, 1)',
+                      'rgba(255, 159, 64, 1)'
+                  ],
+                  borderWidth: 1
+              },
+            {
+              label: 'input',
+                  data:getinput(),
+                  backgroundColor: [
+                      'rgba(192, 192, 192,0.2)',
+                      'rgba(192, 192, 192,0.2)',
+                      'rgba(192, 192, 192,0.2)',
+                      'rgba(192, 192, 192,0.2)',
+                      'rgba(192, 192, 192,0.2)',
+                      'rgba(192, 192, 192,0.2)'
+                  ],
+                  borderColor: [
+                      'rgba(192, 192, 192)',
+                      'rgba(192, 192, 192)',
+                      'rgba(192, 192, 192)',
+                      'rgba(192, 192, 192)',
+                      'rgba(192, 192, 192)',
+                      'rgba(192, 192, 192)'
+                  ],
+                  borderWidth: 1
+            },
+            {
+              label: 'output',
+                  data: getoutput(),
+                  backgroundColor: [
+                      'rgba(255, 99, 132, 0.2)',
+                      'rgba(54, 162, 235, 0.2)',
+                      'rgba(255, 206, 86, 0.2)',
+                      'rgba(75, 192, 192, 0.2)',
+                      'rgba(153, 102, 255, 0.2)',
+                      'rgba(255, 159, 64, 0.2)'
+                  ],
+                  borderColor: [
+                    'rgba(0, 0, 0, 0)',
+                  ],
+                  borderWidth: 1
+            }]
+          },
+          options: {
+              scales: {
+                  yAxes: [{
+                      ticks: {
+                          beginAtZero: true
+                      }
+                  }]
+              }
+          }
+      });
   }
-  
+
   let neurona = {
-      pesos: [],
+     pesos: [],
       sesgo: null,
       lr:0.001,
       init: function (numPesos) { //Le digo el numero de pesos que quiero que tenga y random darlos
@@ -75,11 +149,17 @@ function exercise(){
           this.sesgo += ajuste;
       }
   }
-  
-  
-  
-  neurona.init(2); //2 pesos porque hay 2 entradas
+  neurona.init(3); //2 pesos porque hay 2 entradas
   function adivinar(){
-  document.getElementById("st1").value = neurona.salida([document.getElementById("test1").value,document.getElementById("test2").value]);
+  document.getElementById("st1").value = neurona.salida([0,0,0]);
   }
+  function getPesos() {
+    return neurona.pesos;
+  }
+  function getinput() {
+return neurona.input;
+  }
+  function getoutput() {
+    return neurona.output;
+      }
   
